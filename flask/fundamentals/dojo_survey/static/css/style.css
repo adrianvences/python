@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box{
+    height: 400px;
+    width: 800px;
+    border: 2px solid black;
+}
+
+.orgin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.spaceout{
+    margin: 10px;
+    width: 400px;
+    display: flex;
+    justify-content:space-between
+}
+
+#moveright{
+    width: 400px;
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+}

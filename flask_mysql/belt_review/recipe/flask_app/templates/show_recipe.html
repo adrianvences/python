@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+</head>
+<style>
+    *{
+        border: 0;
+        margin: 0;
+    }
+
+    .header{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .table{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container {
+        border: solid black;
+        height: 500px;
+        width: 1000px;
+        margin: auto;
+    }
+
+
+</style>
+<body>
+    <div class="header">
+        <div>
+            <h1>Welcome, {{user.first_name}}</h1>
+        </div>
+        <div>
+            <a href="/recipes">back to recipes</a>
+            <a href="/logout">logout</a>
+        </div>
+    </div>
+    <div class="header">
+        <div>
+            <h1> {{users_recipe.name}}</h1>
+        </div>
+        <div>
+            <h3>posted by: {{users_recipe.first_name}}</h3>
+        </div>
+    </div>
+    <div class="container">
+        <h3>Description :{{users_recipe.description}}</h3>
+        <br>
+
+        <!-- this is conditional rendering -->
+        {% if users_recipe.under_30 == 1 %}
+            <h3>Under 30 minutes :Yes </h3>
+        {% else %}
+            <h3>Under 30 minutes :No </h3>
+        {% endif %}
+        <br>
+        <h3>Instructions :{{users_recipe.instructions}}</h3>
+        <br>
+        <h3>Date made  :{{users_recipe.date_cooked}}</h3>
+        <br>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+* {
+    margin: 0px;
+    border: 0px;
+    background-color:white;
+    
+}
+
+h1 {
+    background-color: red;
+}
+
+
+.container {
+    width: 920px;
+    height: 500px;
+    border: solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    gap: 20px;
+}
+
+#box1 {
+    border: solid black;
+    width: 400px;
+    height: 400px;
+    background-color: red;
+    padding: 20px;
+
+
+}
+
+#box2 {
+    border: solid black;
+    width: 400px;
+    height: 400px;
+    background-color: red;
+
+}
+
+.button {
+    background-color: orange;
+    color: red;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.select {
+    width: 200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    background-color: black;
+}
+
+#box3 {
+    border: solid black;
+    margin: auto;
+    height: 30px;
+    width: 920px;
+    display: flex;
+    justify-content: space-around;
+    justify-content: flex-end;
+    align-items: center;
+}

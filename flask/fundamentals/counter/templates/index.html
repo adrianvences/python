@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head class="box">
+<body class="box2">
+    <style>
+        .box{
+            background-color: blue;
+            border:0px;
+            margin: 0;
+            /* display: flex;
+            justify-content: center; */
+
+        }
+
+        .box2 {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+    </style>
+    <h1> Welcome!</h1>
+        <p> {{session['count']}} times </p>
+        
+            <div class="buttons">
+                <form action='/destroy_session' method='POST'>
+                
+                <button><a href="/plusAddTwo">plusAddTwo</a></button>
+                <button>reset</button>
+            </div>
+                </form>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css'" href="{{ url_for('static',filename='playground.css') }}" />
+    <title>Playground</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: auto;
+            border:0px;
+        }
+        .box-container{
+            height: 175px;
+            width: 600px;
+            display: flex;
+            
+            flex-wrap: wrap;
+            justify-content: center;
+
+
+        }
+        .box {
+            background-color: {{color}};
+            height: 160px;
+            width: 160px;
+            display: flex;
+            margin: 5px;
+            flex-direction: row;
+            border: solid black;
+            
+        }
+        h1 {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+
+    <h1>Welcome!</h1>
+    <div class="box-container">
+        {% for x in range(0,times): %}
+        <div class="box">Box {{x + 1}} </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

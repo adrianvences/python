@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Order</title>
+</head>
+<body>
+    <a href="/clear">Clear Session!</a>
+    <h1>Your Order</h1>
+    <h3>Ship to: {{ session['name'] }}</h3>
+    <h3>Quantity: {{ session['qty'] }}</h3>
+    <h3>{{session['qty']}} {{ session['product']}}</h3>
+</body>
+</html>

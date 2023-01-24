@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Share</title>
+</head>
+<style>
+    *{
+        border: 0;
+        margin: 0;
+    }
+
+    .container {
+        
+        height: 400px;
+        width: 650px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .box1 {
+        height: 350px;
+        width: 300px;
+
+    }
+
+    .box2 {
+
+        height: 350px;
+        width: 300px;
+
+    }
+
+    form {
+        display: flex;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    input {
+        border: solid black;
+        margin-bottom: 10px;
+    }
+    
+</style>
+<body>
+    <div class="header">
+        <div>
+            <h1>Add a new Recipe!</h1>
+        </div>
+        <div>
+            <a href="/recipes"> back to recipes</a>
+            <a href="/logout"> logout</a>
+        </div>
+    </div>
+    {% with messages = get_flashed_messages()%}
+        {% if messages %}
+
+            {% for message in messages %}
+                <p style="color: red ;">{{message}}</p>
+            {% endfor %}
+                    
+        {% endif %}
+    {% endwith %}
+    
+    <div class="container">
+        <form action="/create_recipe" method="POST">
+                <div class="box1">
+                    <label for="name" >name</label>
+                    <input type="text" name="name">
+                    <br>
+                    <label for="name">Description</label>
+                    <input style=" height:50px;" type="text" name="description">
+                    <br>
+                    <label for="name">Instructions</label>
+                    <input style=" height:50px;" type="text" name="instructions">
+                </div>
+            
+                <div class="box2">
+                    <p>Date Cooked/Made:</p>
+                    <input type="date" name="date_cooked">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p>Under 30 minutes?</p>
+                    <br>
+                    <label for="yes">yes</label>
+                    <input checked type="radio" name="under_30" value=1>
+                    
+                    <label for="yes">No</label>
+                    <input type="radio" name="under_30" value=0>
+                    <br>
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+    </div>
+</body>
+</html>

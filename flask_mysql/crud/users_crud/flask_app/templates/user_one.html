@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>read (one) </title>
+</head>
+<style>
+    *{
+        border: 0;
+        margin: 0;
+        margin-left: 25px;
+    }
+
+    .box {
+        border: solid black;
+        height: 400px;
+        width: 600px;
+        
+    }
+</style>
+<body>
+    <h1>User {{ users.id }}</h1>  <a href="/">home</a>
+    <div class="box">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Created At</th>
+                    <th>Last updated on</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ users.id }}</td>
+                    <td>{{users.first_name}} {{users.last_name}} </td>
+                    <td>{{ users.email}}</td>
+                    <td>{{ users.created_at}}</td>
+                    <td>{{ users.updated_at}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="/edit/{{users.id}}">Edit</a> <a href="/delete/{{ users.id }}">Delete</a>
+</body>
+</html>

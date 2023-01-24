@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recipe share</title>
+</head>
+<style>
+    *{
+        margin: auto;
+        border: 0;
+        align-items: center;
+        
+    }
+
+    #header {
+        text-align: center;
+    }
+
+    .container {
+
+        width: 700px;
+        height: auto;
+        min-height: 400px;
+        display: flex;
+    }
+
+    #box1 {
+        min-width: 300px;
+        width: auto;
+        height: auto;
+        min-height: 300px;
+    }
+
+    #box2 {
+
+        min-width: 300px;
+        width: auto;
+        height: auto;
+        min-height: 300px;
+    }
+
+
+
+</style>
+<body>
+    <H1 style="color:purple;" id="header"> Recipe Share</H1>
+
+    <div class="container">
+
+        <div id="box1">
+            <h1>Register</h1>
+            {% with messages = get_flashed_messages()%}
+                {% if messages %}
+
+                    {% for message in messages %}
+                        <p style="color: red ;">{{message}}</p>
+                    {% endfor %}
+                    
+                {% endif %}
+            {% endwith %}
+            <form action="/register" method="POST"> 
+                <div >
+                    <div >
+                        <label for="first_name" class="col-form-label">first name:</label>
+                        <br>
+                        <input type="text" name="first_name" >
+                    </div>
+                    <div>
+                    </div>
+                    </div>
+
+                <div >
+                    <div class="col-auto">
+                        <label for="last_name" class="col-form-label">last name:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" name="last_name" >
+                    </div>
+                    <div >
+                    </div>
+                    </div>
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                        <label for="email" >enter email:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" name="email">
+                    </div>
+                    <div >
+                    </div>
+                    </div>
+                    
+                <div >
+                    <div class="col-auto">
+                        <label for="inputPassword6" >Password:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="password" name="password" >
+                    </div>
+                    <div class="col-auto">
+                    </div>
+                    </div>
+
+                    <div class="row g-3 align-items-center">
+                        <div class="col-auto">
+                            <label for="inputPassword6" >Confirm Password:</label>
+                        </div>
+                            <div class="col-auto">
+                            <input type="password" name="password2" >
+                        </div>
+                            <div class="col-auto">
+                            </div>
+                        </div>
+                            <input class="btn btn-primary" type="submit" value="Register">
+            </form>                
+
+        </div>
+
+        <div id="box2">
+            <h1>Log in</h1>
+            {% with messages = get_flashed_messages()%}
+                {% if messages %}
+
+                    {% for message in messages %}
+                        <p style="color: red ;">{{message}}</p>
+                    {% endfor %}
+                    
+                {% endif %}
+            {% endwith %}
+            <form action="/login"  method="POST">
+                <div >
+                    <div >
+                        <label for="email" >enter email:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="text" name="email" >
+                    </div>
+                    <div>
+                    </div>
+                    </div>
+                    
+                <div >
+                    <div class="col-auto">
+                        <label for="inputPassword6" >Password:</label>
+                    </div>
+                    <div >
+                        <input type="password" name="password" >
+                    </div>
+                    <div class="col-auto">
+                    </div>
+                    </div>
+                    <input style="background-color:rgb(174, 181, 174)"  type="submit" value="submit">
+
+            </form>
+        </div>
+
+    </div>
+
+
+    
+</body>
+</html>

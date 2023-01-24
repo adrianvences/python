@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+</head>
+<style>
+    *{
+        border: 0;
+        margin: 0;
+    }
+
+    .header{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .table{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+    }
+</style>
+<body>
+    <h1>Welcome, {{user.first_name}} </h1>
+    <div class="header">
+        <div>
+            <h3> all posted recipes:</h3>
+        </div>
+        <div>
+            <a href="/new_recipe">+ create</a>
+            <a href="/logout" class="btn btn-primary" type="submit" value="logout">LOGOUT</a>
+        </div>
+    </div>
+    <div class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Under</th>
+                    <th>Posted By</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for recipe in recipes %}
+                <tr>
+                    <td>{{recipe.name}}</td>
+                    {% if recipe.under_30 == 1%}
+                        <td>Yes</td>
+                    {% else %}
+                        <td>No</td>
+                    {% endif %}
+                    <td>{{recipe.user.first_name}}</td>                                                      
+                    <td><a href="/recipe/show/{{recipe.id}}">view recipe</a> 
+                    {% if recipe.user_id == session ['uid'] %} 
+                        <a href="/edit_recipe/{{recipe.id}}">edit</a> 
+                        <a href="/delete/recipe/{{recipe.id}}">delete</a></td>
+                    {% endif %}
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+<!-- item.owner.username -->

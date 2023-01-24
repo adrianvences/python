@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<style>
+    *{
+        border: 0;
+        margin: 0;
+    }
+
+    .container {
+        
+        height: 400px;
+        width: 650px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .box1 {
+        height: 350px;
+        width: 300px;
+
+    }
+
+    .box2 {
+
+        height: 350px;
+        width: 300px;
+
+    }
+
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    input {
+        border: solid black;
+        margin-bottom: 10px;
+    }
+    
+</style>
+<body>
+    <div class="header">
+        <div>
+            <h1>Edit Recipe!</h1>
+        </div>
+        <div>
+            <a href="/recipes"> back to recipes</a>
+            <a href="/logout"> logout</a>
+        </div>
+    </div>
+    {% with messages = get_flashed_messages()%}
+    {% if messages %}
+
+        {% for message in messages %}
+            <p style="color: red ;">{{message}}</p>
+        {% endfor %}
+                
+    {% endif %}
+{% endwith %}
+    <div class="container">
+        <div class="box1">
+            <form action="/save_recipe" method="POST">
+                <label for="name">name</label>
+                <input type="text" value="{{recipe.name}}" name="name">
+                <br>
+                <label for="name">Description</label>
+                <input style=" height:50px;" type="text" value="{{recipe.description}}" name="description">
+                <br>
+                <label for="name">Instructions</label>
+                <input style=" height:50px;" type="text" value="{{recipe.instructions}}" name="instructions">
+
+                </div>
+
+                <div class="box2">
+
+                <p>Date Cooked/Made:</p>
+                <input type="date" value="{{recipe.date_cooked}}" name="date_cooked">
+                <br>
+                <br>
+                <br>
+                <br>
+                <p>Under 30 minutes?</p>
+                <br>
+                <label for="yes">yes</label>
+                <input name = 'under_30'  type="radio" value="{{recipe.under_30}}">
+
+                <label for="yes">No</label>
+                <input name = 'under_30' type="radio">
+                <br>
+                <input type="hidden" name="id" value="{{recipe.id}}">
+                <br>
+                <input type="submit" value="Save changes">
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
